@@ -1,0 +1,45 @@
+{
+  "name": "vue-finalform",
+  "version": "0.0.0",
+  "description": "Subscription-based form state management for Vue.js",
+  "repository": {
+    "url": "egoist/vue-finalform",
+    "type": "git"
+  },
+  "main": "dist/vue-finalform.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "npm run lint && echo 'no tests!'",
+    "lint": "xo",
+    "prepublishOnly": "npm run build",
+    "build": "bili --js babel --format umd,umd-min --module-name VueFinalForm --globals.final-form final-form",
+    "example": "poi",
+    "build:example": "poi build",
+    "gh": "gh-pages -d example/dist",
+    "deploy": "npm run build:example && npm run gh"
+  },
+  "author": "egoist <0x142857@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "bili": "^0.19.0",
+    "eslint-config-rem": "^3.0.0",
+    "final-form": "^3.0.0",
+    "gh-pages": "^1.0.0",
+    "poi": "^9.1.4",
+    "rollup-plugin-babel": "^3.0.3",
+    "vue-router": "^3.0.1",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "extends": "rem"
+  },
+  "peerDependencies": {
+    "final-form": "^3.0.0"
+  },
+  "babel": {
+    "presets": ["poi"]
+  }
+}
