@@ -41,7 +41,7 @@ export default {
     }
   },
 
-  render(h) {
+  render() {
     const {
       blur,
       change,

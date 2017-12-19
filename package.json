@@ -34,7 +34,12 @@
     "xo": "^0.18.0"
   },
   "xo": {
-    "extends": "rem"
+    "extends": "rem",
+    "envs": ["browser"],
+    "ignores": ["example/**"],
+    "rules": {
+      "unicorn/filename-case": 0
+    }
   },
   "peerDependencies": {
     "final-form": "^3.0.0"

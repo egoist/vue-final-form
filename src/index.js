@@ -1,7 +1,12 @@
-export { default as FinalForm } from './Form'
-export { default as FinalField } from './Field'
+import FinalForm from './Form'
+import FinalField from './Field'
+
+export {
+  FinalForm,
+  FinalField
+}
 
 if (typeof window !== 'undefined' && window.Vue) {
-  Vue.component(FinalForm.name, FinalForm)
-  Vue.component(FinalField.name, FinalField)
+  window.Vue.component(FinalForm.name, FinalForm)
+  window.Vue.component(FinalField.name, FinalField)
 }

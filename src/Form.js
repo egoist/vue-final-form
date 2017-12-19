@@ -1,4 +1,4 @@
-import {createForm, formSubscriptionItems} from 'final-form'
+import { createForm, formSubscriptionItems } from 'final-form'
 
 const defaultSubscription = formSubscriptionItems.reduce(
   (result, key) => {
@@ -9,6 +9,8 @@ const defaultSubscription = formSubscriptionItems.reduce(
 )
 
 export default {
+  name: 'final-form',
+
   props: {
     initialValues: Object,
     submit: {
