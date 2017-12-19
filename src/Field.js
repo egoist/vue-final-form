@@ -14,6 +14,12 @@ export default {
     subscription: Object
   },
 
+  data() {
+    return {
+      fieldState: {}
+    }
+  },
+
   created() {
     const subscription = this.subscription || fieldSubscriptionItems.reduce((result, key) => {
       result[key] = true
