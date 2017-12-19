@@ -1,6 +1,6 @@
 {
   "name": "vue-finalform",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Subscription-based form state management for Vue.js",
   "repository": {
     "url": "egoist/vue-finalform",
@@ -35,8 +35,12 @@
   },
   "xo": {
     "extends": "rem",
-    "envs": ["browser"],
-    "ignores": ["example/**"],
+    "envs": [
+      "browser"
+    ],
+    "ignores": [
+      "example/**"
+    ],
     "rules": {
       "unicorn/filename-case": 0
     }
@@ -45,6 +49,8 @@
     "final-form": "^3.0.0"
   },
   "babel": {
-    "presets": ["poi"]
+    "presets": [
+      "poi"
+    ]
   }
 }
