@@ -19,6 +19,8 @@ yarn add final-form vue-finalform
 
 ## Usage
 
+[![Edit example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/egoist/vue-finalform/tree/master/example)
+
 This library exports two components:
 
 ```js
