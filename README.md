@@ -122,11 +122,55 @@ See [FormSubscription](https://github.com/final-form/final-form#formsubscription
 
 #### scoped slot props
 
+It basically exposes everything in [FormState](https://github.com/final-form/final-form#formstate) plus follwoings:
+
 ##### handleSubmit
 
 Type: `function`
 
 The function that you will invoke to submit the form data, you may use it as the `:submit` event handler on your `<form>`.
+
+##### reset
+
+Type: `function`
+
+See [FormApi.reset](https://github.com/final-form/final-form#reset---void).
+
+##### mutators
+
+Type: `?{ [string]: Function }`
+
+See [FormApi.mutators](https://github.com/final-form/final-form#mutators--string-function-).
+
+##### batch
+
+Type: `function`
+
+See [FormApi.batch](https://github.com/final-form/final-form#batch-fn---void--void).
+
+##### blur
+
+Type: `function`
+
+See [FormApi.blur](https://github.com/final-form/final-form#blur-name-string--void).
+
+##### change
+
+Type: `function`
+
+See [FormApi.change](https://github.com/final-form/final-form#change-name-string-value-any--void).
+
+##### focus
+
+Type: `function`
+
+See [FormApi.focus](https://github.com/final-form/final-form#focus-name-string--void)
+
+##### initialize
+
+Type: `function`
+
+See [FormApi.initialize](https://github.com/final-form/final-form#initialize-values-object--void).
 
 ### `<FinalField>`
 

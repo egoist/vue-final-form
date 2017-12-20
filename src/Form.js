@@ -1,4 +1,5 @@
 import { createForm, formSubscriptionItems } from 'final-form'
+import assign from 'nano-assign'
 import { getChildren } from './utils'
 
 const defaultSubscription = formSubscriptionItems.reduce(
@@ -33,7 +34,7 @@ export default {
         onSubmit: this.submit,
         initialValues: this.initialValues
       }),
-      initialState: null
+      formState: null
     }
   },
 
@@ -46,6 +47,7 @@ export default {
 
   created() {
     this.unsubscribe = this.finalForm.subscribe(state => {
+      this.formState = state
       this.$emit('change', state)
     }, this.subscription || defaultSubscription)
   },
@@ -57,7 +59,16 @@ export default {
   render(h) {
     const children = this.$scopedSlots.default ?
     this.$scopedSlots.default({
-      handleSubmit: this.handleSubmit
+      ...this.formState,
+      handleSubmit: this.handleSubmit,
+      mutators: this.finalForm.mutators,
+      batch: this.finalForm.batch,
+      blur: this.finalForm.blur,
+      change: this.finalForm.change,
+      focus: this.finalForm.focus,
+      handleSubmit: this.handleSubmit,
+      initialize: this.finalForm.initialize,
+      reset: this.finalForm.reset
     }) :
     this.$slots.default
 

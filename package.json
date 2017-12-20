@@ -14,7 +14,7 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --js babel --format umd,umd-min --module-name VueFinalForm --globals.final-form final-form",
+    "build": "bili --js babel --format umd,umd-min --module-name VueFinalForm --globals.final-form final-form --buble.objectAssign assign",
     "example": "poi",
     "build:example": "poi build",
     "gh": "gh-pages -d example/dist",
@@ -22,7 +22,9 @@
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "nano-assign": "^1.0.0"
+  },
   "devDependencies": {
     "bili": "^0.19.0",
     "eslint-config-rem": "^3.0.0",

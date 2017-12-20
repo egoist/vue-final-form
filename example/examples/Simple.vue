@@ -19,7 +19,9 @@
             </span>
           </div>
         </FinalField>
-        <button type="submit">Submit</button>
+        <button type="submit" :disabled="props.submitting">
+          {{ props.submitting ? 'Submitting' : 'Submit' }}
+        </button>
       </form>
     </FinalForm>
 
