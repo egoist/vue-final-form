@@ -1,5 +1,5 @@
 import { createForm, formSubscriptionItems } from 'final-form'
-import assign from 'nano-assign'
+import assign from 'nano-assign' // eslint-disable-line no-unused-vars
 import { getChildren } from './utils'
 
 const defaultSubscription = formSubscriptionItems.reduce(
@@ -66,7 +66,6 @@ export default {
       blur: this.finalForm.blur,
       change: this.finalForm.change,
       focus: this.finalForm.focus,
-      handleSubmit: this.handleSubmit,
       initialize: this.finalForm.initialize,
       reset: this.finalForm.reset
     }) :
