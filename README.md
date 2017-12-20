@@ -134,7 +134,8 @@ The function that you will invoke to submit the form data, you may use it as the
 
 ##### name
 
-Type: `string`
+Type: `string`<br>
+Required: `true`
 
 The name of this field.
 
