@@ -30,6 +30,14 @@
 <script>
 import { FinalForm, FinalField } from 'vue-finalform'
 
+function sleep(timeout) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, timeout);
+  })
+}
+
 export default {
   components: {
     FinalForm,
@@ -46,7 +54,8 @@ export default {
   },
 
   methods: {
-    handleSubmit(state) {
+    async handleSubmit(state) {
+      await sleep(2000)
       console.log(state)
     },
 
