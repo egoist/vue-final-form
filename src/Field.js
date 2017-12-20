@@ -1,4 +1,5 @@
 import { fieldSubscriptionItems } from 'final-form'
+import { getChildren } from './utils'
 
 export default {
   name: 'final-field',
@@ -57,12 +58,12 @@ export default {
       ...meta
     } = this.fieldState
 
-    const child = this.$scopedSlots.default({
+    const children = this.$scopedSlots.default({
       events: this.fieldEvents,
       name,
       meta
     })
 
-    return child
+    return getChildren(children)[0]
   }
 }

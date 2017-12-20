@@ -1,4 +1,5 @@
 import { createForm, formSubscriptionItems } from 'final-form'
+import { getChildren } from './utils';
 
 const defaultSubscription = formSubscriptionItems.reduce(
   (result, key) => {
@@ -55,11 +56,11 @@ export default {
 
   render(h) {
     const children = this.$scopedSlots.default ?
-    [this.$scopedSlots.default({
+    this.$scopedSlots.default({
       handleSubmit: this.handleSubmit
-    })] :
+    }) :
     this.$slots.default
 
-    return h('div', null, children)
+    return h('div', null, getChildren(children))
   }
 }
