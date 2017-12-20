@@ -1,7 +1,15 @@
 
 # vue-finalform
 
+<!-- hide-on-docup-start -->
+
 [![NPM version](https://img.shields.io/npm/v/vue-finalform.svg?style=flat)](https://npmjs.com/package/vue-finalform) [![NPM downloads](https://img.shields.io/npm/dm/vue-finalform.svg?style=flat)](https://npmjs.com/package/vue-finalform) [![CircleCI](https://circleci.com/gh/egoist/vue-finalform/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-finalform/tree/master)  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
+
+<!-- hide-on-docup-stop -->
+
+## Introduction
+
+🏁 High performance subscription-based form state management for Vue.js.
 
 ## Install
 
@@ -84,6 +92,93 @@ The `validate` prop is used to validate the field data, it could be a function t
 
 The data that `FinalField` passed to its children contains `props.events` which is required to be bound with the `input` element in order to properly track events. And `props.name` is  the `name` you gave `FinalField`, `props.meta` is some infomation about this field.
 
+## API
+
+### `<FinalForm>`
+
+#### props
+
+##### submit
+
+Type: `function`<br>
+Required: `true`
+
+See [onSubmit](https://github.com/final-form/final-form#onsubmit-values-object-form-formapi-callback-errors-object--void--object--promiseobject--void).
+
+##### initialValues
+
+Type: `object`
+
+See [initialValues](https://github.com/final-form/final-form#initialvalues-object).
+
+##### subscription
+
+Type: `FormSubscription`<br>
+Default: All
+
+See [FormSubscription](https://github.com/final-form/final-form#formsubscription--string-boolean-).
+
+#### scoped slot props
+
+##### handleSubmit
+
+Type: `function`
+
+The function that you will invoke to submit the form data, you may use it as the `:submit` event handler on your `<form>`.
+
+### `<FinalField>`
+
+#### props
+
+##### name
+
+Type: `string`
+
+The name of this field.
+
+See [name](https://github.com/final-form/final-form#name-string-1).
+
+##### validate
+
+Type: `function`
+
+A field-level validation function to validate a single field value. Returns an error if the value is not valid, or undefined if the value is valid.
+
+See [validate](https://github.com/final-form/final-form#validate-value-any-allvalues-object--any).
+
+##### subscription
+
+Type: `FieldSubscription`<br>
+Default: All
+
+See [FieldSubcription](https://github.com/final-form/final-form#fieldsubscription--string-boolean-).
+
+#### scoped slot props
+
+It basically exposes [FieldState](https://github.com/final-form/final-form#fieldstate).
+
+##### name
+
+Type: `string`
+
+The name of this field.
+
+See [`FieldState.name`](https://github.com/final-form/final-form#name-string)
+
+##### events
+
+Type: `{ input: Function, focus: Function, blur: Function }`
+
+Bind these event handlers to your `input` `textarea` element.
+
+See [FieldState.change](https://github.com/final-form/final-form#change-value-any--void), [FieldState.focus](https://github.com/final-form/final-form#focus---void), [FieldState.blur](https://github.com/final-form/final-form#blur---void).
+
+##### meta
+
+Type: `object`
+
+Everything in [FieldState](https://github.com/final-form/final-form#fieldstate) except for `blur` `change` `focus` `name`
+
 ## Contributing
 
 1. Fork it!
@@ -95,7 +190,7 @@ The data that `FinalField` passed to its children contains `props.events` which 
 
 ## Author
 
-**vue-finalform** © [EGOIST](https://github.com/egoist), Released under the [MIT](./LICENSE) License.<br>
+**vue-finalform** © [EGOIST](https://github.com/egoist), Released under the [MIT](https://github.com/egoist/vue-finalform/blob/master/LICENSE) License.<br>
 Authored and maintained by EGOIST with help from contributors ([list](https://github.com/egoist/vue-finalform/contributors)).
 
 > [egoist.moe](https://egoist.moe) · GitHub [@EGOIST](https://github.com/egoist) · Twitter [@_egoistlily](https://twitter.com/_egoistlily)
