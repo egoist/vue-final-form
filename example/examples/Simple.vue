@@ -1,12 +1,16 @@
 <template>
   <div>
-    <FinalForm :submit="handleSubmit" @change="updateState">
+    <FinalForm
+      :submit="handleSubmit"
+      @change="updateState"
+      :initialValues="initialValues">
       <form slot-scope="props" @submit="props.handleSubmit">
         <FinalField name="email" :validate="required">
           <div slot-scope="props">
             <input
               v-on="props.events"
               :name="props.name"
+              :value="props.value"
             />
             <span
               class="error"
@@ -34,7 +38,10 @@ export default {
 
   data() {
     return {
-      formState: null
+      formState: null,
+      initialValues: {
+        email: 'egoist@boring.com'
+      }
     }
   },
 
