@@ -171,7 +171,7 @@ See [`FieldState.name`](https://github.com/final-form/final-form#name-string)
 
 Type: `any`.
 
-The current value of this field. You should probably bind it to `:value` of the field if you have set initial value for it.
+The current value of this field. You should probably bind it to `:value` of `input` or `textarea` if you have set initial value for the field.
 
 ##### events
 
