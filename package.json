@@ -14,7 +14,7 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --js babel --format umd,umd-min --module-name VueFinalForm --globals.final-form final-form --buble.objectAssign assign",
+    "build": "bili --js babel --format umd,umd-min --module-name VueFinalForm --globals.final-form final-form",
     "example": "poi",
     "build:example": "poi build",
     "gh": "gh-pages -d example/dist",
