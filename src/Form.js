@@ -1,5 +1,5 @@
 import { createForm, formSubscriptionItems } from 'final-form'
-import assign from 'nano-assign' // eslint-disable-line no-unused-vars
+import assign from 'nano-assign'
 import { getChildren } from './utils'
 
 const defaultSubscription = formSubscriptionItems.reduce(
@@ -58,8 +58,7 @@ export default {
 
   render(h) {
     const children = this.$scopedSlots.default ?
-    this.$scopedSlots.default({
-      ...this.formState,
+    this.$scopedSlots.default(assign({}, this.formState, {
       handleSubmit: this.handleSubmit,
       mutators: this.finalForm.mutators,
       batch: this.finalForm.batch,
@@ -68,7 +67,7 @@ export default {
       focus: this.finalForm.focus,
       initialize: this.finalForm.initialize,
       reset: this.finalForm.reset
-    }) :
+    })) :
     this.$slots.default
 
     return h('div', null, getChildren(children))
