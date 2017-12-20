@@ -1,5 +1,5 @@
 import { createForm, formSubscriptionItems } from 'final-form'
-import { getChildren } from './utils';
+import { getChildren } from './utils'
 
 const defaultSubscription = formSubscriptionItems.reduce(
   (result, key) => {
