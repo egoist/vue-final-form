@@ -1,6 +1,6 @@
 {
   "name": "vue-finalform",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Subscription-based form state management for Vue.js",
   "repository": {
     "url": "egoist/vue-finalform",
