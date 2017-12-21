@@ -107,6 +107,14 @@ Required: `true`
 
 See [onSubmit](https://github.com/final-form/final-form#onsubmit-values-object-form-formapi-callback-errors-object--void--object--promiseobject--void).
 
+##### validate
+
+Type: `function`
+
+A whole-record validation function that takes all the values of the form and returns any validation errors.
+
+See [validate](https://github.com/final-form/final-form#validate-values-object--object--promiseobject).
+
 ##### initialValues
 
 Type: `object`

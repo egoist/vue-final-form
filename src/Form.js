@@ -19,7 +19,8 @@ export default {
       type: Function,
       required: true
     },
-    subscription: Object
+    subscription: Object,
+    validate: Function
   },
 
   provide() {
@@ -32,7 +33,8 @@ export default {
     return {
       finalForm: createForm({
         onSubmit: this.submit,
-        initialValues: this.initialValues
+        initialValues: this.initialValues,
+        validate: this.validate
       }),
       formState: null
     }
