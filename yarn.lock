@@ -925,9 +925,9 @@ big.js@^3.1.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
 
-bili@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/bili/-/bili-1.0.1.tgz#48c9da56a10cbb2f9545db93f791dc6b4209d7d7"
+bili@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/bili/-/bili-1.1.0.tgz#5b64e5f35007209f208432461a7ae948bfd5e9d1"
   dependencies:
     babel-core "^6.26.0"
     babel-plugin-external-helpers "^6.22.0"
