@@ -1,9 +1,9 @@
 
-# vue-finalform
+# vue-final-form
 
 <!-- hide-on-docup-start -->
 
-[![NPM version](https://img.shields.io/npm/v/vue-finalform.svg?style=flat)](https://npmjs.com/package/vue-finalform) [![NPM downloads](https://img.shields.io/npm/dm/vue-finalform.svg?style=flat)](https://npmjs.com/package/vue-finalform) [![CircleCI](https://circleci.com/gh/egoist/vue-finalform/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-finalform/tree/master)  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
+[![NPM version](https://img.shields.io/npm/v/vue-final-form.svg?style=flat)](https://npmjs.com/package/vue-final-form) [![NPM downloads](https://img.shields.io/npm/dm/vue-final-form.svg?style=flat)](https://npmjs.com/package/vue-final-form) [![CircleCI](https://circleci.com/gh/egoist/vue-final-form/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-final-form/tree/master)  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
 
 <!-- hide-on-docup-stop -->
 
@@ -14,17 +14,17 @@
 ## Install
 
 ```bash
-yarn add final-form vue-finalform
+yarn add final-form vue-final-form
 ```
 
 ## Usage
 
-[![Edit example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/egoist/vue-finalform/tree/master/example)
+[![Edit example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/egoist/vue-final-form/tree/master/example)
 
 This library exports two components:
 
 ```js
-import { FinalForm, FinalField } from 'vue-finalform'
+import { FinalForm, FinalField } from 'vue-final-form'
 ```
 
 The first component you'll need is the `FinalForm` component:
@@ -251,7 +251,7 @@ Everything in [FieldState](https://github.com/final-form/final-form#fieldstate) 
 
 ## Author
 
-**vue-finalform** © [EGOIST](https://github.com/egoist), Released under the [MIT](https://github.com/egoist/vue-finalform/blob/master/LICENSE) License.<br>
-Authored and maintained by EGOIST with help from contributors ([list](https://github.com/egoist/vue-finalform/contributors)).
+**vue-final-form** © [EGOIST](https://github.com/egoist), Released under the [MIT](https://github.com/egoist/vue-final-form/blob/master/LICENSE) License.<br>
+Authored and maintained by EGOIST with help from contributors ([list](https://github.com/egoist/vue-final-form/contributors)).
 
 > [egoist.moe](https://egoist.moe) · GitHub [@EGOIST](https://github.com/egoist) · Twitter [@_egoistlily](https://twitter.com/_egoistlily)

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { FinalForm, FinalField } from 'vue-finalform'
+import { FinalForm, FinalField } from 'vue-final-form'
 
 function sleep(timeout) {
   return new Promise(resolve => {

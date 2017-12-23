@@ -7,6 +7,6 @@ module.exports = {
   extendWebpack(config) {
     config.resolve
       .alias
-      .set('vue-finalform$', path.resolve('src/index.js'))
+      .set('vue-final-form$', path.resolve('src/index.js'))
   }
 }

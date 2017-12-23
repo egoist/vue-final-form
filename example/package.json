@@ -7,6 +7,6 @@
     "final-form": "^3.0.0",
     "vue": "^2.0.0",
     "vue-router": "^3.0.0",
-    "vue-finalform": "latest"
+    "vue-final-form": "latest"
   }
 }
