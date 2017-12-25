@@ -20,7 +20,7 @@
             </span>
           </div>
         </FinalField>
-        <FinalField name="password" :validate="required">
+        <FinalField name="password" :validate="[range(6, 20), noSpecialChars]">
           <div slot-scope="props">
             <input
               v-on="props.events"
@@ -102,6 +102,16 @@ export default {
 
     matchedPassword(value, values) {
       return value === values.password ? null : 'Mismatched password!'
+    },
+
+    range(min, max) {
+      return value => {
+        return value && value.length >= min && value.length <= max ? null : `Password should be between length ${min} and ${max}`
+      }
+    },
+
+    noSpecialChars(v) {
+      return /[!@#$%^&*()]/.test(v) ? 'Please do not use specfial chars' : null
     }
   }
 }

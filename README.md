@@ -109,7 +109,7 @@ See [onSubmit](https://github.com/final-form/final-form#onsubmit-values-object-f
 
 ##### validate
 
-Type: `function`
+Type: `function` `Array<function>`
 
 A whole-record validation function that takes all the values of the form and returns any validation errors.
 
@@ -195,7 +195,7 @@ See [name](https://github.com/final-form/final-form#name-string-1).
 
 ##### validate
 
-Type: `function`
+Type: `function` `Array<function>`
 
 A field-level validation function to validate a single field value. Returns an error if the value is not valid, or undefined if the value is valid.
 
