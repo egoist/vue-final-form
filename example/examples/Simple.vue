@@ -11,6 +11,37 @@
               v-on="props.events"
               :name="props.name"
               :value="props.value"
+              type="email"
+            />
+            <span
+              class="error"
+              v-if="props.meta.touched && props.meta.error">
+              {{ props.meta.error }}
+            </span>
+          </div>
+        </FinalField>
+        <FinalField name="password" :validate="required">
+          <div slot-scope="props">
+            <input
+              v-on="props.events"
+              :name="props.name"
+              :value="props.value"
+              type="password"
+            />
+            <span
+              class="error"
+              v-if="props.meta.touched && props.meta.error">
+              {{ props.meta.error }}
+            </span>
+          </div>
+        </FinalField>
+        <FinalField name="confirmPassword" :validate="matchedPassword">
+          <div slot-scope="props">
+            <input
+              v-on="props.events"
+              :name="props.name"
+              :value="props.value"
+              type="password"
             />
             <span
               class="error"
@@ -67,6 +98,10 @@ export default {
 
     required(v) {
       return v ? null : 'This field is required!'
+    },
+
+    matchedPassword(value, values) {
+      return value === values.password ? null : 'Mismatched password!'
     }
   }
 }
