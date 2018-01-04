@@ -462,6 +462,10 @@ babel-messages@^6.23.0:
   dependencies:
     babel-runtime "^6.22.0"
 
+babel-plugin-alter-object-assign@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-alter-object-assign/-/babel-plugin-alter-object-assign-1.0.1.tgz#64d5185cac4f8aa14c4ddf124da4cde280d80871"
+
 babel-plugin-check-es2015-constants@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-check-es2015-constants/-/babel-plugin-check-es2015-constants-6.22.0.tgz#35157b101426fd2ffd3da3f75c7d1e91835bbf8a"
@@ -925,14 +929,16 @@ big.js@^3.1.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
 
-bili@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/bili/-/bili-1.1.0.tgz#5b64e5f35007209f208432461a7ae948bfd5e9d1"
+bili@^1.3.7:
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/bili/-/bili-1.3.7.tgz#b8b9b86ee2c28234e36acd609511097b8e91e13f"
   dependencies:
     babel-core "^6.26.0"
+    babel-plugin-alter-object-assign "^1.0.1"
     babel-plugin-external-helpers "^6.22.0"
     babel-plugin-transform-class-properties "^6.24.1"
     babel-plugin-transform-flow-strip-types "^6.22.0"
+    babel-plugin-transform-object-rest-spread "^6.26.0"
     babel-plugin-transform-react-jsx "^6.24.1"
     babel-preset-vue "^2.0.0"
     boxen "^1.3.0"
@@ -940,16 +946,17 @@ bili@^1.1.0:
     camelcase "^4.1.0"
     chalk "^2.3.0"
     fast-async "^6.3.0"
+    first-commit-date "^0.2.0"
     globby "^7.1.1"
     gzip-size "^4.1.0"
-    magic-string "^0.22.4"
     pretty-bytes "^4.0.2"
     read-pkg-up "^3.0.0"
-    rollup "^0.52.3"
+    rollup "^0.53.2"
     rollup-plugin-alias "^1.4.0"
     rollup-plugin-babel "^3.0.3"
     rollup-plugin-buble "^0.18.0"
     rollup-plugin-commonjs "^8.2.6"
+    rollup-plugin-hashbang "^1.0.1"
     rollup-plugin-json "^2.3.0"
     rollup-plugin-node-resolve "^3.0.0"
     rollup-plugin-replace "^2.0.0"
@@ -957,6 +964,7 @@ bili@^1.1.0:
     string-width "^2.1.1"
     stringify-author "^0.1.3"
     text-table "^0.2.0"
+    uglify-es "^3.3.4"
     use-config "^1.1.0"
 
 binary-extensions@^1.0.0:
@@ -2659,6 +2667,12 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
+first-commit-date@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/first-commit-date/-/first-commit-date-0.2.0.tgz#2ee97057ed52103862a58acf4b1d244d7705e261"
+  dependencies:
+    get-first-commit "^0.2.0"
+
 flat-cache@^1.2.1:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-1.3.0.tgz#d3030b32b38154f4e3b7e9c709f490f7ef97c481"
@@ -2796,6 +2810,13 @@ get-caller-file@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
 
+get-first-commit@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/get-first-commit/-/get-first-commit-0.2.0.tgz#e2948c0bf7859b40ddba6b5525f383db87251396"
+  dependencies:
+    gitty "^3.2.3"
+    lazy-cache "^0.2.4"
+
 get-set-props@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/get-set-props/-/get-set-props-0.1.0.tgz#998475c178445686d0b32246da5df8dbcfbe8ea3"
@@ -2836,6 +2857,10 @@ gh-pages@^1.0.0:
     globby "^6.1.0"
     graceful-fs "4.1.11"
     rimraf "^2.6.2"
+
+gitty@^3.2.3:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/gitty/-/gitty-3.6.0.tgz#4a001a6cb2f749cc28f7fbe2ca9ed415d71c1e53"
 
 glob-base@^0.3.0:
   version "0.3.0"
@@ -3691,6 +3716,10 @@ latest-version@^3.0.0:
   resolved "https://registry.yarnpkg.com/latest-version/-/latest-version-3.1.0.tgz#a205383fea322b33b5ae3b18abee0dc2f356ee15"
   dependencies:
     package-json "^4.0.0"
+
+lazy-cache@^0.2.4:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-0.2.7.tgz#7feddf2dcb6edb77d11ef1d117ab5ffdf0ab1b65"
 
 lazy-cache@^1.0.3:
   version "1.0.4"
@@ -5481,6 +5510,12 @@ rollup-plugin-commonjs@^8.2.6:
     resolve "^1.4.0"
     rollup-pluginutils "^2.0.1"
 
+rollup-plugin-hashbang@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-hashbang/-/rollup-plugin-hashbang-1.0.1.tgz#4bfa5afc55d92fbfb52cc0bd99270ed06eec6cf0"
+  dependencies:
+    magic-string "^0.22.4"
+
 rollup-plugin-json@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-json/-/rollup-plugin-json-2.3.0.tgz#3c07a452c1b5391be28006fbfff3644056ce0add"
@@ -5524,9 +5559,9 @@ rollup-pluginutils@^2.0.1:
     estree-walker "^0.3.0"
     micromatch "^2.3.11"
 
-rollup@^0.52.3:
-  version "0.52.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.52.3.tgz#020d99fffe9619351e47b3894fd397c26f5e1bf6"
+rollup@^0.53.2:
+  version "0.53.3"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.53.3.tgz#e7b6777623df912bd0ca30dc24be791d6ebc8e5a"
 
 run-async@^0.1.0:
   version "0.1.0"
@@ -6111,6 +6146,13 @@ type-is@~1.6.15:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+uglify-es@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.4.tgz#2d592678791e5310456bbc95e952139e3b13167a"
+  dependencies:
+    commander "~2.12.1"
+    source-map "~0.6.1"
 
 uglify-js@3.2.x, uglify-js@^3.0.9:
   version "3.2.2"
