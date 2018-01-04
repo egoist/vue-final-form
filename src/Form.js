@@ -17,7 +17,7 @@ export default {
     initialValues: Object,
     submit: {
       type: Function,
-      required: true
+      default: () => {}
     },
     subscription: Object,
     validate: [Function, Array]

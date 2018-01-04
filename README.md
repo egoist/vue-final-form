@@ -35,11 +35,11 @@ The first component you'll need is the `FinalForm` component:
 </FinalForm>
 ```
 
-The only required prop is `submit`, it defines how to submit the form data, maybe simply log the form state:
+The only required prop is `submit`, it defines how to submit the form data, maybe simply log it:
 
 ```js
-function submit(state) {
-  console.log(state)
+function submit(values) {
+  console.log(values)
 }
 ```
 
@@ -72,8 +72,8 @@ Next let's define a form field with `<FinalField>` component:
 ```vue
 <FinalForm :submit="submit">
   <form slot-scope="props" @submit="props.handleSubmit">
-    <FinalField 
-      name="username" 
+    <FinalField
+      name="username"
       :validate="v => v ? null : 'this is required'">
       <div slot-scope="props">
         <input v-on="props.events" :name="props.name">
@@ -103,7 +103,9 @@ The data that `FinalField` passed to its children contains `props.events` which 
 ##### submit
 
 Type: `function`<br>
-Required: `true`
+Default: `() => {}`
+
+Here we allow `submit` to be optional since you may not need it when you just use `vue-final-form` as a form validation tool.
 
 See [onSubmit](https://github.com/final-form/final-form#onsubmit-values-object-form-formapi-callback-errors-object--void--object--promiseobject--void).
 
