@@ -54,7 +54,7 @@ export default {
     }, this.subscription || defaultSubscription)
   },
 
-  beforeDestory() {
+  beforeDestroy() {
     this.unsubscribe()
   },
 
