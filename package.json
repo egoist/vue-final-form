@@ -14,7 +14,7 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --format umd,umd-min --module-name VueFinalForm --global.final-form final-form --name vue-final-form",
+    "build": "bili --format umd,umd-min --module-name VueFinalForm --global.final-form final-form --sizeLimit.umd-min 1.2kb",
     "example": "poi",
     "build:example": "poi build",
     "gh": "gh-pages -d example/dist",
@@ -26,7 +26,7 @@
     "nano-assign": "^1.0.0"
   },
   "devDependencies": {
-    "bili": "^1.6.0",
+    "bili": "^2.2.3",
     "eslint-config-rem": "^3.0.0",
     "final-form": "^3.0.0",
     "gh-pages": "^1.0.0",
