@@ -98,7 +98,7 @@ The data that `FinalField` passed to its children contains `props.events` which 
 
 ### `<FinalForm>`
 
-#### props
+#### Props
 
 ##### submit
 
@@ -130,7 +130,15 @@ Default: All
 
 See [FormSubscription](https://github.com/final-form/final-form#formsubscription--string-boolean-).
 
-#### scoped slot props
+#### Events
+
+##### change
+
+Params:
+
+- `formState`: https://github.com/final-form/final-form#formstate
+
+#### Scoped slot props
 
 It basically exposes everything in [FormState](https://github.com/final-form/final-form#formstate) plus follwoings:
 
@@ -184,7 +192,7 @@ See [FormApi.initialize](https://github.com/final-form/final-form#initialize-val
 
 ### `<FinalField>`
 
-#### props
+#### Props
 
 ##### name
 
@@ -210,7 +218,15 @@ Default: All
 
 See [FieldSubcription](https://github.com/final-form/final-form#fieldsubscription--string-boolean-).
 
-#### scoped slot props
+#### Events
+
+##### change
+
+Params:
+
+- `fieldState`: https://github.com/final-form/final-form#fieldstate
+
+#### Scoped slot props
 
 It basically exposes [FieldState](https://github.com/final-form/final-form#fieldstate).
 

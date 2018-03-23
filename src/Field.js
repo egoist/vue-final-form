@@ -29,6 +29,7 @@ export default {
 
     this.unsubscribe = this.finalForm.registerField(this.name, fieldState => {
       this.fieldState = fieldState
+      this.$emit('change', fieldState)
     }, subscription, {
       validate: Array.isArray(this.validate) ? composeValidators(this.validate) : this.validate
     })
