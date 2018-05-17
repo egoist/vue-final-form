@@ -14,7 +14,7 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --no-babel.babelrc --format umd,umd-min --module-name VueFinalForm --global.final-form final-form --sizeLimit.umd-min 1.2kb",
+    "build": "bili --no-babel.babelrc --format umd,umd-min --module-name VueFinalForm --global.final-form final-form --sizeLimit.umd-min 1.5kb",
     "example": "poi",
     "build:example": "poi build",
     "gh": "gh-pages -d example/dist",
