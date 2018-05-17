@@ -1,5 +1,5 @@
 import { fieldSubscriptionItems } from 'final-form'
-import { getChildren, composeValidators } from './utils'
+import { getChildren, composeFieldValidators } from './utils'
 
 export default {
   name: 'final-field',
@@ -31,7 +31,7 @@ export default {
       this.fieldState = fieldState
       this.$emit('change', fieldState)
     }, subscription, {
-      validate: Array.isArray(this.validate) ? composeValidators(this.validate) : this.validate
+      getValidator: Array.isArray(this.validate) ? composeFieldValidators(this.validate) : () => this.validate
     })
   },
 

@@ -1,6 +1,6 @@
 import { createForm, formSubscriptionItems } from 'final-form'
 import assign from 'nano-assign'
-import { getChildren, composeValidators } from './utils'
+import { getChildren, composeFormValidators } from './utils'
 
 const defaultSubscription = formSubscriptionItems.reduce(
   (result, key) => {
@@ -34,7 +34,7 @@ export default {
       finalForm: createForm({
         onSubmit: this.submit,
         initialValues: this.initialValues,
-        validate: Array.isArray(this.validate) ? composeValidators(this.validate) : this.validate
+        validate: Array.isArray(this.validate) ? composeFormValidators(this.validate) : this.validate
       }),
       formState: null
     }
