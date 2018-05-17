@@ -30,7 +30,7 @@
     "eslint-config-rem": "^3.0.0",
     "final-form": "^4.0.0",
     "gh-pages": "^1.0.0",
-    "poi": "^9.1.4",
+    "poi": "9",
     "rollup-plugin-babel": "^3.0.3",
     "vue-router": "^3.0.1",
     "xo": "^0.18.0"
