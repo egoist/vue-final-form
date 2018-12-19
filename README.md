@@ -242,7 +242,7 @@ See [`FieldState.name`](https://github.com/final-form/final-form#name-string)
 
 Type: `function`
 
-[FieldState.change](https://github.com/final-form/final-form#change-value-any--void)
+See [`FieldState.change`](https://github.com/final-form/final-form#change-value-any--void)
 
 ##### value
 
