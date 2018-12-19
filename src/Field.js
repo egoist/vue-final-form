@@ -61,6 +61,7 @@ export default {
 
     const children = this.$scopedSlots.default({
       events: this.fieldEvents,
+      change,
       value,
       name,
       meta

@@ -238,6 +238,12 @@ The name of this field.
 
 See [`FieldState.name`](https://github.com/final-form/final-form#name-string)
 
+##### change
+
+Type: `function`
+
+See [`FieldState.change`](https://github.com/final-form/final-form#change-value-any--void)
+
 ##### value
 
 Type: `any`.
