@@ -14,9 +14,9 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --no-babel.babelrc --format umd,umd-min --module-name VueFinalForm --global.final-form final-form --sizeLimit.umd-min 1.5kb",
-    "example": "poi",
-    "build:example": "poi build",
+    "build": "bili --format umd,umd-min --module-name VueFinalForm --global.final-form final-form --sizeLimit.umd-min 1.5kb",
+    "example": "poi --serve",
+    "build:example": "poi --prod",
     "gh": "gh-pages -d example/dist",
     "deploy": "npm run build:example && npm run gh"
   },
@@ -26,13 +26,14 @@
     "nano-assign": "^1.0.0"
   },
   "devDependencies": {
-    "bili": "^3.0.0",
+    "bili": "^3.4.2",
     "eslint-config-rem": "^3.0.0",
     "final-form": "^4.0.0",
     "gh-pages": "^1.0.0",
-    "poi": "9",
-    "rollup-plugin-babel": "^3.0.3",
+    "poi": "^12.0.0",
+    "vue": "^2.5.21",
     "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.21",
     "xo": "^0.18.0"
   },
   "xo": {
@@ -50,10 +51,5 @@
   },
   "peerDependencies": {
     "final-form": "^4.0.0"
-  },
-  "babel": {
-    "presets": [
-      "poi"
-    ]
   }
 }
