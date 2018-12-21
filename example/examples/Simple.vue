@@ -6,19 +6,7 @@
       :initialValues="initialValues">
       <form slot-scope="props" @submit="props.handleSubmit">
         <FinalField name="email" :validate="required">
-          <div slot-scope="props">
-            <input
-              v-on="props.events"
-              :name="props.name"
-              :value="props.value"
-              type="email"
-            />
-            <span
-              class="error"
-              v-if="props.meta.touched && props.meta.error">
-              {{ props.meta.error }}
-            </span>
-          </div>
+          <Input/>
         </FinalField>
         <FinalField name="password" :validate="[range(6, 20), noSpecialChars]">
           <div slot-scope="props">
@@ -63,6 +51,8 @@
 <script>
 import { FinalForm, FinalField } from 'vue-final-form'
 
+import Input from './Input';
+
 function sleep(timeout) {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -74,7 +64,8 @@ function sleep(timeout) {
 export default {
   components: {
     FinalForm,
-    FinalField
+    FinalField,
+    Input
   },
 
   data() {
