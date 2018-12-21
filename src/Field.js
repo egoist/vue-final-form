@@ -3,7 +3,6 @@ import { getChildren, composeFieldValidators } from './utils'
 
 export default {
   name: 'final-field',
-
   inject: ['finalForm'],
 
   props: {
@@ -49,24 +48,41 @@ export default {
     }
   },
 
+  methods: {
+    getChildParams() {
+      const {
+        blur,
+        change,
+        focus,
+        value,
+        name,
+        ...meta
+      } = this.fieldState
+
+      return {
+        events: this.fieldEvents,
+        change,
+        value,
+        name,
+        meta
+      }
+    },
+    setPropsToGenericChild() {
+      this.$slots.default[0].componentOptions.propsData = {
+        ...this.$slots.default[0].componentOptions.propsData,
+        fieldProps: this.getChildParams()
+      }
+    }
+  },
+
   render() {
-    const {
-      blur,
-      change,
-      focus,
-      value,
-      name,
-      ...meta
-    } = this.fieldState
-
-    const children = this.$scopedSlots.default({
-      events: this.fieldEvents,
-      change,
-      value,
-      name,
-      meta
-    })
-
+    let children = []
+    if (this.$scopedSlots.default) {
+      children = this.$scopedSlots.default(this.getChildParams())
+    } else {
+      this.setPropsToGenericChild()
+      children = this.$slots.default
+    }
     return getChildren(children)[0]
   }
 }
