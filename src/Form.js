@@ -53,17 +53,17 @@ export default {
       this.$emit('change', state)
     }, this.subscription || defaultSubscription)
   },
-
+  
+  watch: {
+    initialValues(newValue) {
+      this.finalForm.initialize(newValue)
+    }
+  },
+  
   beforeDestroy() {
     this.unsubscribe()
   },
 
-  watch: {
-    initialValues(newValue) {
-      this.finalForm.initialize(newValue);
-    }
-  },
-  
   render(h) {
     const children = this.$scopedSlots.default ?
     this.$scopedSlots.default(assign({}, this.formState, {
