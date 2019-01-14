@@ -43,7 +43,7 @@
         </button>
       </form>
     </FinalForm>
-
+    <button @click="changeInitialValues">reinitial values</button>
     <pre v-if="formState"><code>form state:<br><br>{{ JSON.stringify(formState, null, 2) }}</code></pre>
   </div>
 </template>
@@ -85,6 +85,12 @@ export default {
 
     updateState(state) {
       this.formState = state
+    },
+
+    changeInitialValues() {
+      this.initialValues = {
+        email: "alireza@ikbenfrits.nl"
+      };
     },
 
     required(v) {
