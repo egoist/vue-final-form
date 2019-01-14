@@ -58,6 +58,12 @@ export default {
     this.unsubscribe()
   },
 
+   watch: {
+    initialValues(newValue) {
+      this.finalForm.initialize(newValue);
+    }
+  },
+  
   render(h) {
     const children = this.$scopedSlots.default ?
     this.$scopedSlots.default(assign({}, this.formState, {
