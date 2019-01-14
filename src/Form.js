@@ -58,7 +58,7 @@ export default {
     this.unsubscribe()
   },
 
-   watch: {
+  watch: {
     initialValues(newValue) {
       this.finalForm.initialize(newValue);
     }
