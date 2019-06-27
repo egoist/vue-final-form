@@ -47,6 +47,12 @@ export default {
     }
   },
 
+  watch: {
+    initialValues(newValue) {
+      this.finalForm.initialize(newValue);
+    }
+  },
+
   created() {
     this.unsubscribe = this.finalForm.subscribe(state => {
       this.formState = state
