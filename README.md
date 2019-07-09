@@ -252,9 +252,11 @@ The current value of this field. You should probably bind it to `:value` of `inp
 
 ##### events
 
-Type: `{ input: Function, focus: Function, blur: Function }`
+Type: `{ change: Function, input: Function, focus: Function, blur: Function }`
 
-Bind these event handlers to your `input` `textarea` element.
+Bind these event handlers to your `input`, `textarea`, or `select` element.
+
+Note: change is used for special complex elements (input[type="checkbox"] and select[multiple]). We defer to Vue to handle the model evaluation in these cases, so v-model must be bound to the props.value from the scoped slot.
 
 See [FieldState.change](https://github.com/final-form/final-form#change-value-any--void), [FieldState.focus](https://github.com/final-form/final-form#focus---void), [FieldState.blur](https://github.com/final-form/final-form#blur---void).
 
