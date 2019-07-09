@@ -1,5 +1,5 @@
 import { fieldSubscriptionItems } from 'final-form'
-import { getChildren, composeFieldValidators } from './utils'
+import { composeFieldValidators } from './utils'
 
 export default {
   name: 'final-field',
@@ -39,10 +39,15 @@ export default {
     this.unsubscribe()
   },
 
-  computed: {
-    fieldEvents() {
+  methods: {
+    isChangeTarget(target) {
+      return (target.nodeName === 'INPUT' && target.type === 'checkbox') ||
+        (target.nodeName === 'SELECT' && target.multiple)
+    },
+    fieldEvents(slotScope) {
       return {
-        input: e => this.fieldState.change(e.target.value),
+        change: e => this.isChangeTarget(e.target) && this.fieldState.change(slotScope.value),
+        input: e => !this.isChangeTarget(e.target) && this.fieldState.change(e.target.value),
         blur: () => this.fieldState.blur(),
         focus: () => this.fieldState.focus()
       }
@@ -51,22 +56,21 @@ export default {
 
   render() {
     const {
-      blur,
       change,
-      focus,
       value,
       name,
       ...meta
     } = this.fieldState
 
-    const children = this.$scopedSlots.default({
-      events: this.fieldEvents,
+    const slotScope = {
       change,
       value,
       name,
       meta
-    })
+    }
 
-    return getChildren(children)[0]
+    return this.$scopedSlots.default(Object.assign(slotScope, {
+      events: this.fieldEvents(slotScope)
+    }))
   }
 }
