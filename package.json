@@ -22,9 +22,6 @@
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "nano-assign": "^1.0.0"
-  },
   "devDependencies": {
     "bili": "^3.4.2",
     "eslint-config-rem": "^3.0.0",
