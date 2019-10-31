@@ -24,7 +24,6 @@ export default {
     mutators: {
       type: Object,
       required: false,
-      default: () => {},
     }
   },
 
