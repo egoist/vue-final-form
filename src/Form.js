@@ -20,7 +20,11 @@ export default {
       default: () => {}
     },
     subscription: Object,
-    validate: [Function, Array]
+    validate: [Function, Array],
+    mutators: {
+      type: Object,
+      required: false,
+    }
   },
 
   provide() {
@@ -34,6 +38,7 @@ export default {
       finalForm: createForm({
         onSubmit: this.submit,
         initialValues: this.initialValues,
+        mutators: this.mutators,
         validate: Array.isArray(this.validate) ? composeFormValidators(this.validate) : this.validate
       }),
       formState: null
@@ -45,6 +50,12 @@ export default {
       e && e.preventDefault()
       this.finalForm.submit()
     }
+  },
+
+  watch: {
+    mutators(newValue) {
+      this.finalForm.setConfig('mutators', newValue)
+    },
   },
 
   created() {
