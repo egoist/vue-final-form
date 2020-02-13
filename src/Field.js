@@ -12,6 +12,7 @@ export default {
       type: String
     },
     validate: [Function, Array],
+    validateFields: Array,
     subscription: Object
   },
 
@@ -31,7 +32,8 @@ export default {
       this.fieldState = fieldState
       this.$emit('change', fieldState)
     }, subscription, {
-      getValidator: Array.isArray(this.validate) ? composeFieldValidators(this.validate) : () => this.validate
+      getValidator: Array.isArray(this.validate) ? composeFieldValidators(this.validate) : () => this.validate,
+      validateFields: this.validateFields
     })
   },
 

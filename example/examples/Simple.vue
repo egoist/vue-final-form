@@ -5,7 +5,7 @@
       @change="updateState"
       :initialValues="initialValues">
       <form slot-scope="props" @submit="props.handleSubmit">
-        <FinalField name="email" :validate="required">
+        <FinalField name="email" :validate="required" :validateFields="[]">
           <div slot-scope="props">
             <input
               v-on="props.events"
@@ -20,7 +20,7 @@
             </span>
           </div>
         </FinalField>
-        <FinalField name="password" :validate="[range(6, 20), noSpecialChars]">
+        <FinalField name="password" :validate="[range(6, 20), noSpecialChars]" :validateFields="['confirmPassword']">
           <div slot-scope="props">
             <input
               v-on="props.events"
@@ -35,7 +35,7 @@
             </span>
           </div>
         </FinalField>
-        <FinalField name="confirmPassword" :validate="matchedPassword">
+        <FinalField name="confirmPassword" :validate="matchedPassword" :validateFields="[]">
           <div slot-scope="props">
             <input
               v-on="props.events"
