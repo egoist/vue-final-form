@@ -35,7 +35,7 @@ export default {
     })
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     this.unsubscribe()
   },
 
@@ -59,7 +59,7 @@ export default {
       ...meta
     } = this.fieldState
 
-    const children = this.$scopedSlots.default({
+    const children = this.$slots.default({
       events: this.fieldEvents,
       change,
       value,

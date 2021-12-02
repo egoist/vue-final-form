@@ -4,56 +4,64 @@
       :submit="handleSubmit"
       @change="updateState"
       :initialValues="initialValues">
-      <form slot-scope="props" @submit="props.handleSubmit">
-        <FinalField name="email" :validate="required">
-          <div slot-scope="props">
-            <input
-              v-on="props.events"
-              :name="props.name"
-              :value="props.value"
-              type="email"
-            />
-            <span
-              class="error"
-              v-if="props.meta.touched && props.meta.error">
-              {{ props.meta.error }}
-            </span>
-          </div>
-        </FinalField>
-        <FinalField name="password" :validate="[range(6, 20), noSpecialChars]">
-          <div slot-scope="props">
-            <input
-              v-on="props.events"
-              :name="props.name"
-              :value="props.value"
-              type="password"
-            />
-            <span
-              class="error"
-              v-if="props.meta.touched && props.meta.error">
-              {{ props.meta.error }}
-            </span>
-          </div>
-        </FinalField>
-        <FinalField name="confirmPassword" :validate="matchedPassword">
-          <div slot-scope="props">
-            <input
-              v-on="props.events"
-              :name="props.name"
-              :value="props.value"
-              type="password"
-            />
-            <span
-              class="error"
-              v-if="props.meta.touched && props.meta.error">
-              {{ props.meta.error }}
-            </span>
-          </div>
-        </FinalField>
-        <button type="submit" :disabled="props.submitting">
-          {{ props.submitting ? 'Submitting' : 'Submit' }}
-        </button>
-      </form>
+      <template v-slot="props">
+        <form @submit="props.handleSubmit">
+          <FinalField name="email" :validate="required">
+            <template v-slot="props">
+              <div>
+                <input
+                  v-on="props.events"
+                  :name="props.name"
+                  :value="props.value"
+                  type="email"
+                />
+                <span
+                  class="error"
+                  v-if="props.meta.touched && props.meta.error">
+                  {{ props.meta.error }}
+                </span>
+              </div>
+            </template>
+          </FinalField>
+          <FinalField name="password" :validate="[range(6, 20), noSpecialChars]">
+            <template v-slot="props">
+              <div>
+                <input
+                  v-on="props.events"
+                  :name="props.name"
+                  :value="props.value"
+                  type="password"
+                />
+                <span
+                  class="error"
+                  v-if="props.meta.touched && props.meta.error">
+                  {{ props.meta.error }}
+                </span>
+              </div>
+            </template>
+          </FinalField>
+          <FinalField name="confirmPassword" :validate="matchedPassword">
+            <template v-slot="props">
+              <div>
+                <input
+                  v-on="props.events"
+                  :name="props.name"
+                  :value="props.value"
+                  type="password"
+                />
+                <span
+                  class="error"
+                  v-if="props.meta.touched && props.meta.error">
+                  {{ props.meta.error }}
+                </span>
+              </div>
+            </template>
+          </FinalField>
+          <button type="submit" :disabled="props.submitting || null">
+            {{ props.submitting ? 'Submitting' : 'Submit' }}
+          </button>
+        </form>
+      </template>
     </FinalForm>
 
     <pre v-if="formState"><code>form state:<br><br>{{ JSON.stringify(formState, null, 2) }}</code></pre>

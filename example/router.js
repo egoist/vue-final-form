@@ -1,15 +1,14 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { h } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import App from './App.vue'
 
-Vue.use(Router)
-
-export default new Router({
-  mode: 'history',
+export default createRouter({
+  history: createWebHistory(),
   routes: [{
     path: '/',
     component: {
       name: 'Home',
-      render: h => h(App)
+      render: () => h(App)
     }
   }]
 })

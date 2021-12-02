@@ -1,5 +1,5 @@
+import { h } from 'vue'
 import { createForm, formSubscriptionItems } from 'final-form'
-import assign from 'nano-assign'
 import { getChildren, composeFormValidators } from './utils'
 
 const defaultSubscription = formSubscriptionItems.reduce(
@@ -54,13 +54,13 @@ export default {
     }, this.subscription || defaultSubscription)
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     this.unsubscribe()
   },
 
-  render(h) {
-    const children = this.$scopedSlots.default ?
-    this.$scopedSlots.default(assign({}, this.formState, {
+  render() {
+    const children = this.$slots.default ?
+    this.$slots.default(Object.assign({}, this.formState, {
       handleSubmit: this.handleSubmit,
       mutators: this.finalForm.mutators,
       batch: this.finalForm.batch,
