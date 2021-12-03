@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="finalForm.submit">
+    <form @submit="finalForm.handleSubmit">
       <div>
         <input
           :name="emailField.name"

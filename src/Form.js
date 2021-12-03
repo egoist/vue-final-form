@@ -44,16 +44,10 @@ const FinalForm = {
 
   render() {
     const children = this.$slots.default
-      ? this.$slots.default(Object.assign({}, this.formState, {
-        handleSubmit: this.handleSubmit,
-        mutators: this.finalForm.mutators,
-        batch: this.finalForm.batch,
-        blur: this.finalForm.blur,
-        change: this.finalForm.change,
-        focus: this.finalForm.focus,
-        initialize: this.finalForm.initialize,
-        reset: this.finalForm.reset,
-      }))
+      ? this.$slots.default({
+        ...this.formState,
+        ...this.finalForm,
+      })
       : this.$slots.default
 
     return h('div', null, getChildren(children))

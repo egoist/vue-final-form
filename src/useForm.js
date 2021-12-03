@@ -5,11 +5,19 @@ import { composeFormValidators, makeSubscriptionObject } from './utils.js'
 const defaultSubscription = makeSubscriptionObject(formSubscriptionItems)
 
 const useForm = config => {
-  const finalForm = ref(createForm({
+  const formApi = createForm({
     initialValues: config.initialValues,
     validate: Array.isArray(config.validate) ? composeFormValidators(config.validate) : config.validate,
     onSubmit: config.onSubmit,
-  }))
+  })
+
+  const finalForm = ref({
+    ...formApi,
+    handleSubmit: event => {
+      event && event.preventDefault()
+      formApi.submit()
+    },
+  })
 
   const formState = ref()
 
