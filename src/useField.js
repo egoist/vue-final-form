@@ -1,11 +1,12 @@
 import { fieldSubscriptionItems } from 'final-form'
-import { inject, ref, onUnmounted, computed } from 'vue'
+import { ref, onUnmounted, computed } from 'vue'
+import useCurrentForm from './useCurrentForm.js'
 import { composeFieldValidators, makeSubscriptionObject } from './utils.js'
 
 const defaultSubscription = makeSubscriptionObject(fieldSubscriptionItems)
 
 const useField = config => {
-  const finalForm = config.finalForm || inject('finalForm')
+  const finalForm = config.finalForm || useCurrentForm()
 
   const fieldState = ref({})
 
