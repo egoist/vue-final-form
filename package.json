@@ -6,7 +6,10 @@
     "url": "egoist/vue-final-form",
     "type": "git"
   },
-  "main": "dist/vue-final-form.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.umd.js",
+  "jsdelivr": "dist/index.umd.js",
   "files": [
     "dist"
   ],
@@ -14,7 +17,7 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --format umd,umd-min --module-name VueFinalForm --global.final-form final-form --global.vue vue",
+    "build": "bili --format esm,cjs,umd,umd-min --module-name VueFinalForm --global.final-form final-form --global.vue vue",
     "example": "vite",
     "build:example": "vite build",
     "gh": "gh-pages -d example/dist",
