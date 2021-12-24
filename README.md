@@ -1,9 +1,8 @@
-
 # vue-final-form
 
 <!-- hide-on-docup-start -->
 
-[![NPM version](https://img.shields.io/npm/v/vue-final-form.svg?style=flat)](https://npmjs.com/package/vue-final-form) [![NPM downloads](https://img.shields.io/npm/dm/vue-final-form.svg?style=flat)](https://npmjs.com/package/vue-final-form) [![CircleCI](https://circleci.com/gh/egoist/vue-final-form/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-final-form/tree/master)  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
+[![NPM version](https://img.shields.io/npm/v/vue-final-form.svg?style=flat)](https://npmjs.com/package/vue-final-form) [![NPM downloads](https://img.shields.io/npm/dm/vue-final-form.svg?style=flat)](https://npmjs.com/package/vue-final-form) [![CircleCI](https://circleci.com/gh/egoist/vue-final-form/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-final-form/tree/master) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
 
 <!-- hide-on-docup-stop -->
 
@@ -24,7 +23,7 @@ yarn add final-form vue-final-form
 This library exports two components:
 
 ```js
-import { FinalForm, FinalField } from 'vue-final-form'
+import { FinalForm, FinalField } from "vue-final-form";
 ```
 
 The first component you'll need is the `FinalForm` component:
@@ -39,7 +38,7 @@ The only required prop is `submit`, it defines how to submit the form data, mayb
 
 ```js
 function submit(values) {
-  console.log(values)
+  console.log(values);
 }
 ```
 
@@ -53,7 +52,7 @@ As you can see it does nothing for now, you need to feed it a `<form>`:
 
 ```vue
 <FinalForm :submit="submit">
-  <form slot-scope="props" @submit="props.handleSubmit">
+  <form v-slot="props" @submit="props.handleSubmit">
     <!-- ignore the children for now -->
   </form>
 </FinalForm>
@@ -65,17 +64,17 @@ Now it renders:
 <div><form></form></div>
 ```
 
-Here it uses the [`scoped slots`](https://vuejs.org/v2/guide/components.html#Scoped-Slots) feature from Vue.js (>=2.1.0), `props.handleSubmit` is the actual method  it will run to submit data.
+Here it uses the [`scoped slots`](https://vuejs.org/v2/guide/components.html#Scoped-Slots) feature from Vue.js (>=2.1.0), `props.handleSubmit` is the actual method it will run to submit data.
 
 Next let's define a form field with `<FinalField>` component:
 
 ```vue
 <FinalForm :submit="submit">
-  <form slot-scope="props" @submit="props.handleSubmit">
+  <form v-slot="props" @submit="props.handleSubmit">
     <FinalField
       name="username"
       :validate="v => v ? null : 'this is required'">
-      <div slot-scope="props">
+      <div v-slot="props">
         <input v-on="props.events" :name="props.name">
         <span v-if="props.meta.error && props.meta.touched">
           {{ props.meta.error }}
@@ -92,7 +91,7 @@ The only prop that is required by `FinalField` is `name`, it tells the field whe
 
 The `validate` prop is used to validate the field data, it could be a function that returns an error message or `null`, `undefined` when it's considered valid.
 
-The data that `FinalField` passed to its children contains `props.events` which is required to be bound with the `input` element in order to properly track events. And `props.name` is  the `name` you gave `FinalField`, `props.meta` is some infomation about this field.
+The data that `FinalField` passed to its children contains `props.events` which is required to be bound with the `input` element in order to properly track events. And `props.name` is the `name` you gave `FinalField`, `props.meta` is some infomation about this field.
 
 ## API
 
@@ -272,10 +271,9 @@ Everything in [FieldState](https://github.com/final-form/final-form#fieldstate) 
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-
 ## Author
 
 **vue-final-form** © [EGOIST](https://github.com/egoist), Released under the [MIT](https://github.com/egoist/vue-final-form/blob/master/LICENSE) License.<br>
 Authored and maintained by EGOIST with help from contributors ([list](https://github.com/egoist/vue-final-form/contributors)).
 
-> [egoist.moe](https://egoist.moe) · GitHub [@EGOIST](https://github.com/egoist) · Twitter [@_egoistlily](https://twitter.com/_egoistlily)
+> [egoist.moe](https://egoist.moe) · GitHub [@EGOIST](https://github.com/egoist) · Twitter [@\_egoistlily](https://twitter.com/_egoistlily)
