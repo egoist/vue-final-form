@@ -1,77 +1,57 @@
-import { createForm, formSubscriptionItems } from 'final-form'
-import assign from 'nano-assign'
-import { getChildren, composeFormValidators } from './utils'
+import { h } from 'vue'
+import { getChildren } from './utils.js'
+import useForm from './useForm.js'
 
-const defaultSubscription = formSubscriptionItems.reduce(
-  (result, key) => {
-    result[key] = true
-    return result
-  },
-  {}
-)
-
-export default {
+const FinalForm = {
   name: 'final-form',
 
   props: {
     initialValues: Object,
     submit: {
       type: Function,
-      default: () => {}
+      default: () => {},
     },
     subscription: Object,
-    validate: [Function, Array]
+    validate: [Function, Array],
   },
 
-  provide() {
-    return {
-      finalForm: this.finalForm
-    }
-  },
+  setup(props) {
+    const { finalForm, formState } = useForm({
+      initialValues: props.initialValues,
+      validate: props.validate,
+      subscription: props.subscription,
+      onSubmit: props.submit,
+    })
 
-  data() {
     return {
-      finalForm: createForm({
-        onSubmit: this.submit,
-        initialValues: this.initialValues,
-        validate: Array.isArray(this.validate) ? composeFormValidators(this.validate) : this.validate
-      }),
-      formState: null
+      finalForm,
+      formState,
     }
   },
 
   methods: {
-    handleSubmit(e) {
-      e && e.preventDefault()
+    handleSubmit(event) {
+      event && event.preventDefault()
       this.finalForm.submit()
-    }
+    },
   },
 
-  created() {
-    this.unsubscribe = this.finalForm.subscribe(state => {
-      this.formState = state
+  watch: {
+    formState(state) {
       this.$emit('change', state)
-    }, this.subscription || defaultSubscription)
+    },
   },
 
-  beforeDestroy() {
-    this.unsubscribe()
-  },
-
-  render(h) {
-    const children = this.$scopedSlots.default ?
-    this.$scopedSlots.default(assign({}, this.formState, {
-      handleSubmit: this.handleSubmit,
-      mutators: this.finalForm.mutators,
-      batch: this.finalForm.batch,
-      blur: this.finalForm.blur,
-      change: this.finalForm.change,
-      focus: this.finalForm.focus,
-      initialize: this.finalForm.initialize,
-      reset: this.finalForm.reset
-    })) :
-    this.$slots.default
+  render() {
+    const children = this.$slots.default
+      ? this.$slots.default({
+        ...this.formState,
+        ...this.finalForm,
+      })
+      : this.$slots.default
 
     return h('div', null, getChildren(children))
-  }
+  },
 }
+
+export default FinalForm

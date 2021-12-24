@@ -1,52 +1,35 @@
-import { fieldSubscriptionItems } from 'final-form'
-import { getChildren, composeFieldValidators } from './utils'
+import { getChildren } from './utils.js'
+import useField from './useField.js'
 
-export default {
+const FinalField = {
   name: 'final-field',
-
-  inject: ['finalForm'],
 
   props: {
     name: {
       required: true,
-      type: String
+      type: String,
     },
     validate: [Function, Array],
-    subscription: Object
+    subscription: Object,
   },
 
-  data() {
-    return {
-      fieldState: {}
-    }
-  },
-
-  created() {
-    const subscription = this.subscription || fieldSubscriptionItems.reduce((result, key) => {
-      result[key] = true
-      return result
-    }, {})
-
-    this.unsubscribe = this.finalForm.registerField(this.name, fieldState => {
-      this.fieldState = fieldState
-      this.$emit('change', fieldState)
-    }, subscription, {
-      getValidator: Array.isArray(this.validate) ? composeFieldValidators(this.validate) : () => this.validate
+  setup(props) {
+    const { finalForm, fieldState } = useField({
+      name: props.name,
+      subscription: props.subscription,
+      validate: props.validate,
     })
-  },
 
-  beforeDestroy() {
-    this.unsubscribe()
-  },
-
-  computed: {
-    fieldEvents() {
-      return {
-        input: e => this.fieldState.change(e.target.value),
-        blur: () => this.fieldState.blur(),
-        focus: () => this.fieldState.focus()
-      }
+    return {
+      finalForm,
+      fieldState,
     }
+  },
+
+  watch: {
+    fieldState(state) {
+      this.$emit('change', state)
+    },
   },
 
   render() {
@@ -59,14 +42,16 @@ export default {
       ...meta
     } = this.fieldState
 
-    const children = this.$scopedSlots.default({
-      events: this.fieldEvents,
+    const children = this.$slots.default({
+      events: this.fieldState.events,
       change,
       value,
       name,
-      meta
+      meta,
     })
 
     return getChildren(children)[0]
-  }
+  },
 }
+
+export default FinalField

@@ -21,12 +21,14 @@
 
 <script>
 import Simple from './examples/Simple.vue'
+import Composition from './examples/Composition.vue'
 
 export default {
   data() {
     return {
       list: [
-        'Simple'
+        'Simple',
+        'Composition',
       ],
       current: this.$route.query.component || ''
     }
@@ -43,7 +45,8 @@ export default {
   },
 
   components: {
-    Simple
+    Simple,
+    Composition,
   }
 }
 </script>
